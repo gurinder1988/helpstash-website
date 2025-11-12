@@ -59,3 +59,6 @@ assets/Screengrabs/
 # Internal Documentation (Keep Private)
 CLAUDE.md
 Website_Plan.md
+
+# Local Development Server
+server.js
