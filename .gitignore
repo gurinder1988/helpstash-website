@@ -55,3 +55,7 @@ logs/
 # Local Assets (Screenshots for Reference)
 assets/Screenshots/
 assets/Screengrabs/
+
+# Internal Documentation (Keep Private)
+CLAUDE.md
+Website_Plan.md
