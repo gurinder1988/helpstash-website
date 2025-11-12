@@ -1,0 +1,45 @@
+/* Mobile-First Responsive Styles */
+
+/* Base (mobile) - Touch targets 48px minimum (WCAG 2.1 AA) */
+.nav-links a {
+    padding: 12px 20px; /* 48px+ tap target */
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Tablet and below */
+@media (max-width: 768px) {
+    .header-nav {
+        flex-direction: column;
+        gap: var(--space-m);
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Increase touch targets on mobile (easier for thumbs) */
+    .nav-links a {
+        padding: 16px 24px;
+        min-height: 52px;
+    }
+
+    .legal-page {
+        padding: var(--space-m);
+    }
+
+    .site-footer .container {
+        flex-direction: column;
+        gap: var(--space-m);
+        text-align: center;
+    }
+}
+
+/* Mobile (fluid typography handles font sizes) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 var(--space-s);
+    }
+}

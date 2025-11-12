@@ -1,0 +1,218 @@
+/* HelpStash Website Styles */
+
+/* Design Tokens */
+:root {
+    /* Colors - WCAG 2.1 AA compliant */
+    --tranquil-blue: #3a75ab; /* 4.54:1 on white (was #5b9bd5 @ 2.96:1) */
+    --deep-blue: #2c5f8d;
+    --soft-blue: #a6cbe3;
+    --sage-green: #81b622;
+
+    --text-primary: #1c1c1e;
+    --text-secondary: #666666; /* 5.74:1 on white (was #8e8e93 @ 3.26:1) */
+    --background-light: #f5f5f7;
+    --border-color: #d1d1d6;
+
+    /* Typography */
+    --font-body: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+
+    /* Fluid Typography (scales smoothly from mobile to desktop) */
+    --text-base: clamp(1rem, 0.9rem + 0.3vw, 1.125rem); /* 16px → 18px */
+    --text-lg: clamp(1.125rem, 1rem + 0.5vw, 1.375rem); /* 18px → 22px */
+    --text-xl: clamp(1.25rem, 1.1rem + 0.7vw, 1.75rem); /* 20px → 28px */
+    --text-2xl: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem); /* 24px → 36px */
+    --text-3xl: clamp(2rem, 1.5rem + 2vw, 3rem); /* 32px → 48px */
+
+    /* Spacing */
+    --space-xs: 8px;
+    --space-s: 16px;
+    --space-m: 24px;
+    --space-l: 32px;
+    --space-xl: 48px;
+
+    /* Container */
+    --container-max: 800px;
+}
+
+/* Base Styles */
+body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--background-light);
+}
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--space-m);
+}
+
+/* Header */
+.site-header {
+    background: linear-gradient(135deg, var(--tranquil-blue), var(--deep-blue));
+    color: white;
+    padding: var(--space-m) 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--space-m);
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    border-radius: 6px;
+    transition: background 0.2s;
+    /* Padding/min-height defined in responsive.css for touch targets */
+}
+
+.nav-links a:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* Main Content */
+.main-content {
+    padding: var(--space-xl) 0;
+    min-height: 60vh;
+}
+
+.legal-page {
+    background: white;
+    padding: var(--space-xl);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Typography */
+h1 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--deep-blue);
+    margin-bottom: var(--space-s);
+    line-height: 1.2;
+    text-wrap: balance; /* Prevent orphaned words */
+}
+
+h2 {
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    color: var(--deep-blue);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-m);
+    text-wrap: balance;
+}
+
+h3 {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--tranquil-blue);
+    margin-top: var(--space-l);
+    margin-bottom: var(--space-s);
+}
+
+p {
+    margin-bottom: var(--space-m);
+    line-height: 1.7;
+}
+
+a {
+    color: var(--tranquil-blue);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.last-updated {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-top: var(--space-xs);
+}
+
+/* Lists */
+ul, ol {
+    margin: var(--space-m) 0 var(--space-m) var(--space-l);
+}
+
+li {
+    margin-bottom: var(--space-xs);
+}
+
+/* Page Header */
+.page-header {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: var(--space-m);
+    margin-bottom: var(--space-xl);
+}
+
+/* Footer */
+.site-footer {
+    background: var(--deep-blue);
+    color: rgba(255,255,255,0.8);
+    padding: var(--space-l) 0;
+    margin-top: var(--space-xl);
+}
+
+.site-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-nav {
+    display: flex;
+    gap: var(--space-m);
+}
+
+.footer-nav a {
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+}
+
+.footer-nav a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+/* Accessibility - Focus Indicators (WCAG 2.2) */
+:focus-visible {
+    outline: 3px solid var(--tranquil-blue);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+a:focus-visible {
+    outline-color: var(--deep-blue);
+    outline-width: 3px;
+}
+
+/* Accessibility - Reduced Motion (WCAG 2.1 AA) */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
