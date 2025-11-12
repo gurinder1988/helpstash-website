@@ -17,9 +17,15 @@ website/
 │   ├── homepage.css       # Homepage-specific styles
 │   └── responsive.css     # Mobile breakpoints
 └── assets/
-    ├── app-icon.png       # 1024x1024px app icon
-    ├── app-store-badge.svg # Official Apple badge
-    └── favicon.ico        # 32x32px favicon (TODO)
+    ├── app-icon.png           # 1024x1024px app icon (original)
+    ├── app-icon-optimized.png # 248KB optimized version
+    ├── app-store-badge.svg    # Official Apple badge
+    ├── favicon.ico            # Browser favicon (32x32)
+    ├── favicon-*.png          # Multiple favicon sizes
+    ├── apple-touch-icon.png   # iOS home screen icon
+    ├── android-chrome-*.png   # Android icons
+    ├── Screenshots/           # Local-only (gitignored)
+    └── Screengrabs/           # Local-only (gitignored)
 ```
 
 ## Deployment
@@ -53,11 +59,13 @@ See `/docs/website/deployment-steps.md` for full instructions.
 
 ## TODO Before Launch
 
-- [ ] Generate `favicon.ico` from app-icon.png
-- [ ] Update App Store link in homepage after submission (line 54)
+- [x] Generate `favicon.ico` from app-icon.png ✅
+- [x] Add "Coming Soon" App Store badge to homepage ✅
+- [ ] Activate App Store link after app approval (remove .coming-soon class, update href in index.html line 58)
 - [ ] Test all navigation links
-- [ ] Verify mobile responsive design
+- [ ] Verify mobile responsive design on real devices
 - [ ] Set up email forwarding: support@helpstash.app → gurinderiift@gmail.com
+- [ ] Final review of legal pages (Privacy, Terms) with legal counsel
 
 ## Local Testing
 

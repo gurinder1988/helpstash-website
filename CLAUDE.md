@@ -3,7 +3,7 @@
 CSS Expert & Conversion Specialist for HelpStash - a 5-page static marketing website driving app downloads.
 
 **Project Context:**
-- Read `Website_Plan.md` for deployment, troubleshooting, maintenance (950 lines - architecture, content, guides)
+- Read `Website_Plan.md` for deployment, troubleshooting, maintenance (680+ lines - architecture, content, guides)
 - Stack: Static HTML/CSS, Vercel (119 PoPs), helpstash.app, SSL: Let's Encrypt (auto-renew)
 - Purpose: Drive app downloads + App Store requirements (Privacy/Support URLs)
 - Files: 5 HTML (index, privacy, terms, support, accessibility), 4 CSS, 2 assets (1.2 MB total)

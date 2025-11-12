@@ -1,10 +1,10 @@
 # HelpStash Website Developer Guide
 
-**Last Updated:** November 11, 2025
-**Version:** 1.0
+**Last Updated:** November 12, 2025
+**Version:** 1.1
 **Repository:** helpstash-website (public, separate from iOS app)
 **Production URL:** https://helpstash.app (deployment pending)
-**Status:** Production-ready, awaiting deployment
+**Status:** Production-ready with Coming Soon App Store badge
 
 ---
 
@@ -62,18 +62,27 @@ HelpStash_Website/
 │   ├── homepage.css       # Homepage-specific styles
 │   └── responsive.css     # Mobile breakpoints
 ├── assets/
-│   ├── app-icon.png       # 1024×1024px app icon
-│   └── app-store-badge.svg # Official Apple badge
+│   ├── app-icon.png           # 1024×1024px app icon (original)
+│   ├── app-icon-optimized.png # 248KB optimized version (used in HTML)
+│   ├── app-store-badge.svg    # Official Apple badge
+│   ├── favicon.ico            # Browser tab icon
+│   ├── favicon-*.png          # Multiple sizes (16px, 32px)
+│   ├── apple-touch-icon.png   # iOS home screen icon
+│   ├── android-chrome-*.png   # Android icons (192px, 512px)
+│   ├── Screenshots/           # Local-only (gitignored)
+│   └── Screengrabs/           # Local-only (gitignored)
 ├── vercel.json            # Deployment config (cleanUrls, security headers)
-├── .gitignore             # macOS, logs
+├── .gitignore             # macOS, logs, local screenshots
 ├── server.js              # Local testing server (Node.js)
 ├── README.md              # Quick deploy instructions
 ├── Website_Plan.md        # This document
 └── CLAUDE.md              # Web developer constitution (patterns, best practices)
 ```
 
-**Total Size:** 1.2 MB (14 files)
-**Load Time:** <1 second
+**Total Size:** ~1.6 MB (20+ files excluding gitignored screenshots)
+**Load Time:** <1 second (actual page load ~500KB with optimized images)
+
+**Note:** Screenshots in `assets/Screenshots/` and `assets/Screengrabs/` folders (~12.7 MB) are excluded from version control via .gitignore and kept locally for reference only.
 
 ---
 
@@ -230,8 +239,13 @@ open http://localhost:8000/accessibility
 ### Homepage (`index.html`)
 **Sections:** Hero (headline + subheadline + App Store badge) + Features (6 cards) + Footer
 **Hero Headline:** "Pause Impulse Purchases"
-**CTA:** Official App Store badge (update link after submission: `https://apps.apple.com/app/helpstash/[APP_ID]`)
-**Update When:** Pricing changes, new features added, App Store link available
+**CTA:** Official App Store badge with "Coming Soon" overlay (placeholder state)
+**Current Status:** Badge displays with 60% opacity, grayscale filter, and "Coming Soon" pill overlay - not clickable until app approved
+**Update When:**
+- After App Store approval: Remove `.coming-soon` class and `<span class="coming-soon-pill">` element from index.html:58-60
+- Update href from `#` to actual App Store URL: `https://apps.apple.com/app/helpstash/[APP_ID]`
+- Test button is clickable and opens App Store listing
+- Also update: Pricing changes, new features added
 
 ### Privacy Policy (`privacy.html`)
 **Key Sections:** Data Collection, Data Usage, Data Sharing, User Rights (GDPR/CCPA), Contact
@@ -429,6 +443,21 @@ curl -I https://www.helpstash.app
 **Process:** Edit content → Update "Last Updated" date → Commit
 **Notify Users:** If material changes (pricing increases, liability changes), notify via app update notes
 
+### Activate App Store Download Button
+**When:** App approved and live on App Store
+**Files:** index.html (line 58), homepage.css (no changes needed)
+**Steps:**
+1. Open index.html, find line 58: `<a href="#" class="app-store-badge coming-soon">`
+2. Replace `href="#"` with actual App Store URL: `href="https://apps.apple.com/app/helpstash/[APP_ID]"`
+3. Remove `.coming-soon` class: change to `class="app-store-badge"`
+4. Delete lines 60: `<span class="coming-soon-pill">Coming Soon</span>`
+5. Update aria-label: remove "- Coming Soon" text
+6. Test locally: Button should be fully opaque, colored, and clickable
+7. Commit: `git commit -m "Activate App Store download button"`
+8. Push to deploy
+
+**Result:** Button becomes fully visible, clickable, opens App Store listing
+
 ---
 
 ## 7. Maintenance Schedule
@@ -582,11 +611,13 @@ curl -I https://helpstash.app
 - [ ] All HTML validated (W3C Validator)
 - [ ] All CSS loads correctly
 - [ ] All links tested (navigation + email)
-- [ ] Images load (app-icon.png, badge.svg)
+- [ ] Images load (app-icon.png, badge.svg, all favicons)
+- [ ] App Store badge displays "Coming Soon" state (grayed, not clickable)
 - [ ] Mobile responsive (iPhone SE to Pro Max)
-- [ ] Pricing correct across all pages
+- [ ] Pricing correct across all pages ($1.99/mo, $14.99/yr)
 - [ ] Email correct (support@helpstash.app)
 - [ ] Domain purchased (helpstash.app ✅)
+- [ ] Screenshots excluded from git (.gitignore configured)
 
 ### GitHub Setup
 - [ ] Repository created: helpstash-website
@@ -622,6 +653,14 @@ curl -I https://helpstash.app
 - [ ] Performance test (GTmetrix: A grade)
 - [ ] Accessibility test (WAVE: 0 errors)
 - [ ] App Store Connect URLs updated
+- [ ] "Coming Soon" badge visible and styled correctly
+
+### Post-App Store Approval
+- [ ] Update index.html: Remove .coming-soon class
+- [ ] Update index.html: Replace href="#" with App Store URL
+- [ ] Update index.html: Delete "Coming Soon" pill span
+- [ ] Test button clickability and App Store redirect
+- [ ] Deploy updated homepage
 
 ### Go Live
 - [ ] Final review with team
@@ -634,9 +673,16 @@ curl -I https://helpstash.app
 
 **End of Website Plan**
 
-**Document Version:** 1.0
-**Last Updated:** November 11, 2025
-**Next Review:** December 11, 2025 (1 month post-deployment)
+**Document Version:** 1.1
+**Last Updated:** November 12, 2025
+**Next Review:** December 12, 2025 (1 month post-deployment)
 **Maintainer:** Web Development Team
 
 **Questions?** Read `CLAUDE.md` for patterns/best practices, this doc for deployment/content specifics.
+
+**Recent Changes (v1.1):**
+- Added "Coming Soon" App Store badge implementation
+- Documented screenshot folder structure (local-only, gitignored)
+- Added activation instructions for App Store button post-approval
+- Updated file structure and asset inventory
+- Added Post-App Store Approval checklist section

@@ -51,3 +51,7 @@ logs/
 *.temp
 .tmp/
 .temp/
+
+# Local Assets (Screenshots for Reference)
+assets/Screenshots/
+assets/Screengrabs/
