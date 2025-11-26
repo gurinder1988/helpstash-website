@@ -1,0 +1,37 @@
+# LLM-Optimized Sitemap for HelpStash
+
+# Main Pages
+Homepage: https://helpstash.app/
+Support: https://helpstash.app/support
+Privacy Policy: https://helpstash.app/privacy
+Terms of Service: https://helpstash.app/terms
+
+# App Information
+App Name: HelpStash
+Category: Financial Wellness / Impulse Purchase Prevention
+Platform: iOS
+Price: Free (with optional Premium subscription)
+Pricing Model: Freemium - Free to download with optional monthly or yearly Premium subscription. Includes 1-month free trial.
+Description: HelpStash is a financial wellness app that helps users pause impulse purchases with timers, breathing exercises, and streak tracking. The app uses behavioral interventions to help build better spending habits.
+
+# Key Features
+- Set pause timers before making purchase decisions
+- Guided breathing exercises to redirect impulse urges
+- Track consecutive days with completed pauses
+- Monitor savings from resisted impulse purchases
+- View insights about spending triggers and patterns
+- Receive gentle reminders when pause timers complete
+
+# Use Cases
+- Preventing impulse purchases
+- Building better spending habits
+- Financial wellness and awareness
+- Mindful spending practices
+- Breaking the cycle of impulse buying
+
+# Technical Details
+Language: English
+Availability: iOS App Store
+App Store URL: https://apps.apple.com/us/app/helpstash-stop-impulse-spend/id6755245373
+Website: https://helpstash.app
+

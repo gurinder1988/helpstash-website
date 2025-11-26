@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="HelpStash - Pause impulse purchases, save money, and build better spending habits. iOS app with behavioral interventions, breathing exercises, and streak tracking.">
+    <link rel="canonical" href="https://helpstash.app/">
 
     <!-- Open Graph Tags -->
     <meta property="og:title" content="HelpStash - Beat Impulse Buying">
@@ -32,6 +33,65 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/homepage.css">
     <link rel="stylesheet" href="/css/responsive.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "HelpStash",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "iOS",
+      "offers": [
+        {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "Free version"
+        },
+        {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "Premium subscription with 1-month free trial",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "0",
+            "priceCurrency": "USD",
+            "referenceQuantity": {
+              "@type": "QuantitativeValue",
+              "value": "1",
+              "unitCode": "MON"
+            },
+            "description": "1-month free trial, then monthly or yearly subscription"
+          }
+        }
+      ],
+      "description": "Pause impulse purchases with timers, breathing exercises, and streak tracking. Available on iOS.",
+      "url": "https://helpstash.app",
+      "applicationUrl": "https://apps.apple.com/us/app/helpstash-stop-impulse-spend/id6755245373",
+      "downloadUrl": "https://apps.apple.com/us/app/helpstash-stop-impulse-spend/id6755245373",
+      "screenshot": "https://helpstash.app/assets/Screenshots/1.png",
+      "featureList": [
+        "Set pause timers before purchases",
+        "Guided breathing exercises",
+        "Streak tracking",
+        "Savings tracking",
+        "Spending pattern insights",
+        "Gentle reminder notifications"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "HelpStash",
+      "url": "https://helpstash.app",
+      "logo": "https://helpstash.app/assets/app-icon.png",
+      "description": "Financial wellness app for preventing impulse purchases and building better spending habits"
+    }
+    </script>
 </head>
 <body>
     <header class="site-header">
@@ -54,10 +114,9 @@
                 <h1>Pause Impulse Purchases</h1>
                 <p class="hero-subtitle">Beat impulse buying with timers, breathing exercises, and streak tracking.</p>
 
-                <!-- App Store Download Button (Coming Soon) -->
-                <a href="#" class="app-store-badge coming-soon" aria-label="Download on the App Store - Coming Soon">
+                <!-- App Store Download Button -->
+                <a href="https://apps.apple.com/us/app/helpstash-stop-impulse-spend/id6755245373" class="app-store-badge" aria-label="Download on the App Store" target="_blank" rel="noopener noreferrer">
                     <img src="/assets/app-store-badge.svg" alt="Download on the App Store" width="180" height="54">
-                    <span class="coming-soon-pill">Coming Soon</span>
                 </a>
             </div>
         </section>
