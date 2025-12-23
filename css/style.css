@@ -2,14 +2,15 @@
 
 /* Design Tokens */
 :root {
-    /* Colors - WCAG 2.1 AA compliant */
-    --tranquil-blue: #3a75ab; /* 4.54:1 on white (was #5b9bd5 @ 2.96:1) */
-    --deep-blue: #2c5f8d;
-    --soft-blue: #a6cbe3;
-    --sage-green: #81b622;
+    /* Primary Brand Colors - Match iOS App */
+    --tranquil-blue: #5b9bd5; /* iOS exact match */
+    --deep-blue: #2c5f8d;     /* No change */
+    --soft-blue: #b4d7f0;      /* iOS exact match */
+    --sage-green: #81b622;     /* No change */
+    --forest-green: #6a9817;   /* NEW - for green gradients */
 
     --text-primary: #1c1c1e;
-    --text-secondary: #666666; /* 5.74:1 on white (was #8e8e93 @ 3.26:1) */
+    --text-secondary: #666666;
     --background-light: #f5f5f7;
     --border-color: #d1d1d6;
 
@@ -133,12 +134,15 @@ p {
     line-height: 1.7;
 }
 
+/* WCAG AA Compliance - Use darker blue for text links */
 a {
-    color: var(--tranquil-blue);
+    color: var(--deep-blue); /* 6.7:1 contrast - passes WCAG AA */
     text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 a:hover {
+    color: var(--tranquil-blue); /* OK for hover state */
     text-decoration: underline;
 }
 
@@ -214,5 +218,133 @@ a:focus-visible {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+}
+
+/* Changelog Page */
+.changelog-page {
+    padding: 80px 0;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.changelog-page h1 {
+    font-size: 3rem;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, var(--tranquil-blue), var(--deep-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.page-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 64px;
+    text-align: center;
+}
+
+.version-block {
+    margin-bottom: 64px;
+    padding-bottom: 48px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.version-block:last-of-type {
+    border-bottom: none;
+}
+
+.version-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.version-header h2 {
+    font-size: 2rem;
+    color: var(--deep-blue);
+    margin-top: 0;
+}
+
+.version-badge {
+    padding: 6px 16px;
+    border-radius: 16px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    background: var(--border-color);
+    color: var(--text-secondary);
+}
+
+.version-badge.latest {
+    background: linear-gradient(135deg, var(--sage-green), var(--forest-green));
+    color: white;
+}
+
+.feature-item {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 32px;
+    padding: 24px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.feature-item.highlight {
+    background: linear-gradient(135deg, rgba(91, 155, 213, 0.05), rgba(44, 95, 141, 0.08));
+    border: 2px solid var(--tranquil-blue);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.feature-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    margin-top: 0;
+    color: var(--deep-blue);
+}
+
+.feature-content p {
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.feature-content ul {
+    list-style: disc;
+    padding-left: 24px;
+    margin: 12px 0;
+}
+
+.feature-content li {
+    line-height: 1.8;
+    margin-bottom: 8px;
+}
+
+.feature-content .requirements {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    background: rgba(0, 0, 0, 0.03);
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 16px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .changelog-page h1 {
+        font-size: 2rem;
+    }
+
+    .feature-item {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .feature-icon {
+        font-size: 2rem;
     }
 }

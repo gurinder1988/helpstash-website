@@ -42,9 +42,10 @@
             <nav class="header-nav">
                 <a href="/" class="logo">HelpStash</a>
                 <div class="nav-links">
+                    <a href="/support">Support</a>
+                    <a href="/changelog">What's New</a>
                     <a href="/privacy">Privacy</a>
                     <a href="/terms">Terms</a>
-                    <a href="/support">Support</a>
                 </div>
             </nav>
         </div>
@@ -56,7 +57,7 @@
             <article class="legal-page">
                 <header class="page-header">
                     <h1>Privacy Policy</h1>
-                    <p class="last-updated">Last Updated: November 10, 2025</p>
+                    <p class="last-updated">Last Updated: December 23, 2025</p>
                 </header>
 
                 <section id="introduction">
@@ -83,6 +84,26 @@
                         <li>❌ Browsing history or external app usage</li>
                         <li>❌ Contacts or photos</li>
                     </ul>
+
+                    <h3>2.3 Privacy Manifest Compliance</h3>
+                    <p>Per Apple's May 2024 requirement, all iOS apps must include a Privacy Manifest file (PrivacyInfo.xcprivacy) declaring data collection practices and required-reason API usage.</p>
+
+                    <p><strong>HelpStash's Privacy Manifest declares:</strong></p>
+                    <ul>
+                        <li><strong>Data Collection:</strong> None (NSPrivacyCollectedDataTypes: empty array)</li>
+                        <li><strong>Tracking:</strong> None (NSPrivacyTracking: false)</li>
+                        <li><strong>Tracking Domains:</strong> None (NSPrivacyTrackingDomains: empty)</li>
+                        <li><strong>Required Reason APIs:</strong>
+                            <ul>
+                                <li>UserDefaults (CA92.1) - Used to store app preferences and state</li>
+                                <li>File Timestamps (C617.1) - Used by SwiftData for data persistence</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <p>You can view this privacy information yourself in iOS Settings → Privacy & Security → App Privacy Report after installing HelpStash.</p>
+
+                    <p class="reference"><strong>Reference:</strong> <a href="https://developer.apple.com/documentation/bundleresources/privacy-manifest-files" target="_blank" rel="noopener">Apple Privacy Manifest Documentation</a></p>
                 </section>
 
                 <section id="data-storage">
@@ -94,6 +115,22 @@
                     <h3>3.2 iCloud Sync</h3>
                     <p><strong>Current Status:</strong> iCloud sync is NOT enabled. Your data remains exclusively on your device.</p>
                     <p>If iCloud sync is added in the future, you will be notified and given the option to opt in. iCloud data is encrypted and subject to Apple's Privacy Policy.</p>
+
+                    <h3>3.3 App Groups & Widget Data Sharing</h3>
+                    <p>HelpStash uses App Groups (com.apple.security.application-groups) to enable home screen widgets and lock screen widgets to display your timer and streak data. This is a standard iOS feature that creates a shared container for data exchange between the main app and its widget extensions.</p>
+
+                    <p><strong>What this means for your privacy:</strong></p>
+                    <ul>
+                        <li>Your data remains entirely on your device in a shared local container</li>
+                        <li>App Groups only enable data sharing between HelpStash app and its own widgets</li>
+                        <li>No third parties have access to this shared container</li>
+                        <li>No cloud sync or external servers are involved</li>
+                        <li>Widgets can read timer data, streak information, and savings statistics to display updates</li>
+                    </ul>
+
+                    <p>Apple's SwiftData framework automatically migrates your existing data to the app group container when you first install widgets. This migration happens entirely on your device and does not transmit any data externally.</p>
+
+                    <p class="reference"><strong>Reference:</strong> <a href="https://developer.apple.com/documentation/swiftdata" target="_blank" rel="noopener">Apple SwiftData Documentation</a></p>
                 </section>
 
                 <section id="subscription-data">
@@ -121,6 +158,44 @@
                     </ul>
 
                     <p><strong>Why?</strong> Your financial behavior is private. We designed HelpStash to never require an internet connection or server infrastructure.</p>
+
+                    <h3>5.1 Apple Intelligence & On-Device AI Processing</h3>
+                    <p>HelpStash Premium includes "Private AI Reflection," a feature that uses Apple's on-device Foundation Models framework to analyze your spending patterns and provide personalized insights. This feature is only available on iPhone 15 Pro or later running iOS 26.0+ with Apple Intelligence enabled.</p>
+
+                    <h4>What Data is Analyzed</h4>
+                    <p>Private AI Reflection analyzes the following data stored locally on your device:</p>
+                    <ul>
+                        <li>Your pause timer history (amounts, categories, durations, outcomes)</li>
+                        <li>Urge journal entries (triggers, emotions, notes, resistance strategies)</li>
+                        <li>Spending patterns over time (completion rates, successful resistances)</li>
+                    </ul>
+
+                    <h4>How AI Processing Works</h4>
+                    <p><strong>100% On-Device Processing:</strong> All AI analysis happens exclusively on your iPhone using Apple's foundation language models. Your personal data is NEVER transmitted to external servers, third-party AI services, or HelpStash's servers.</p>
+
+                    <p>Per <a href="https://www.apple.com/legal/privacy/data/en/intelligence-engine/" target="_blank" rel="noopener">Apple's Intelligence & Privacy policy</a>, the Foundation Models framework:</p>
+                    <ul>
+                        <li>Processes data entirely on your device</li>
+                        <li>Does NOT collect, store, or transmit your personal data to Apple</li>
+                        <li>Does NOT use your data to train AI models</li>
+                        <li>Only works when you explicitly enable Apple Intelligence in Settings</li>
+                    </ul>
+
+                    <h4>Third-Party AI Disclosure</h4>
+                    <p>Per Apple's November 2025 App Review Guidelines, we explicitly disclose: <strong>HelpStash does NOT share your personal data with any third-party AI services.</strong> The AI features use only Apple's first-party, on-device Foundation Models framework. No external AI providers (OpenAI, Google, Anthropic, etc.) have access to your data.</p>
+
+                    <h4>Your Control</h4>
+                    <ul>
+                        <li>You must explicitly enable Private AI Reflection in the app (opt-in, not automatic)</li>
+                        <li>You can disable the feature at any time in app settings</li>
+                        <li>If you disable Apple Intelligence system-wide in iOS Settings, AI features stop working immediately</li>
+                        <li>When you delete the HelpStash app, all AI-generated insights are permanently removed with your local data</li>
+                    </ul>
+
+                    <p class="reference"><strong>References:</strong>
+                        <br>• <a href="https://support.apple.com/guide/iphone/apple-intelligence-and-privacy-iphe3f499e0e/ios" target="_blank" rel="noopener">Apple Intelligence and Privacy on iPhone</a>
+                        <br>• <a href="https://machinelearning.apple.com/research/apple-foundation-models-2025-updates" target="_blank" rel="noopener">Apple Foundation Models 2025 Updates</a>
+                    </p>
                 </section>
 
                 <section id="data-sharing">
@@ -227,6 +302,7 @@
                 <a href="/privacy">Privacy</a>
                 <a href="/terms">Terms</a>
                 <a href="/support">Support</a>
+                <a href="/changelog">What's New</a>
             </nav>
         </div>
     </footer>
